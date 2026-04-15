@@ -1,0 +1,109 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
+
+body { background: #f0f0f0; color: #333; }
+
+header { padding: 30px; text-align: center; background: #fff; margin-bottom: 20px; }
+
+.shop-area {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Her Model ve Detay Panelini Saran Grup */
+.model-group {
+    display: flex;
+    align-items: flex-start; /* Üstten hizala */
+    position: relative;
+    gap: 20px; /* Fotoğraf ile açılan pencere arasındaki boşluk */
+}
+
+/* Fotoğraf Alanı */
+.model-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.model-wrapper img {
+    display: block;
+    width: 300px; /* Fotoğrafın uzunlamasına duruşuna göre genişliği hafifçe küçülttüm */
+    height: auto;
+}
+
+/* Sıcak Noktalar (Hotspots) - Fotoğrafın üzerindeki alanlar */
+.hotspot {
+    position: absolute;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1); /* Şeffaf ama tıklanabilir */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Hafif border, geliştirme için görünür tutuldu */
+}
+.hotspot:hover { background: rgba(255, 255, 255, 0.3); border-color: #333; }
+
+/* Koordinatları sağladığınız resme göre yeniden hesapladık */
+.hotspot-forma { top: 10%; left: 15%; width: 70%; height: 40%; }
+.hotspot-sort { top: 52%; left: 20%; width: 60%; height: 15%; }
+
+/* Ayakkabılar için iki ayrı tıklama alanı, ama aynı modalı tetikler */
+.hotspot-shoe-r { top: 78%; left: 15%; width: 30%; height: 15%; }
+.hotspot-shoe-l { top: 78%; left: 55%; width: 30%; height: 15%; }
+
+/* SAĞA AÇILAN PANEL */
+.side-panel {
+    display: none; /* Başlangıçta gizli */
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+    border-left: 5px solid #000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.side-panel img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.price {
+    font-size: 22px;
+    color: #e44d26;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.buy-btn {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.buy-btn:hover { background: #333; }
+
+/* Mobil Ayarı */
+@media (max-width: 768px) {
+    .model-group { flex-direction: column; }
+    .side-panel { width: 100%; }
+}
