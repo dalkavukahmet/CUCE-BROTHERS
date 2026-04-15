@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CÜCE BROTHERS | İnteraktif Katalog - Güncel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CÜCE BROTHERS</h1>
+        <p>Ürün detayları için parçaların üzerine tıklayın</p>
+    </header>
+
+    <main class="shop-area">
+        <div class="model-group">
+            <div class="model-wrapper">
+                <img src="cuce_musti.jpeg" alt="Model 1"> <div class="hotspot hotspot-forma" onclick="toggleDetails('details1-f')"></div>
+                <div class="hotspot hotspot-sort" onclick="toggleDetails('details1-s')"></div>
+                <div class="hotspot hotspot-shoe hotspot-shoe-r" onclick="toggleDetails('details1-sh')"></div>
+                <div class="hotspot hotspot-shoe hotspot-shoe-l" onclick="toggleDetails('details1-sh')"></div>
+            </div>
+
+            <div id="details1-f" class="side-panel">
+                <span class="close-btn" onclick="closeDetails('details1-f')">&times;</span>
+                <img src="https://via.placeholder.com/150?text=FORMA" alt="Forma">
+                <h3>İtalya Milli Takım Forması</h3> <p class="price">1.100 TL</p>
+                <p>Beden: S, M, L, XL</p>
+                <button class="buy-btn">Sepete Ekle</button>
+            </div>
+
+            <div id="details1-s" class="side-panel">
+                <span class="close-btn" onclick="closeDetails('details1-s')">&times;</span>
+                <h3>Siyah Performans Şortu</h3> <p class="price">550 TL</p>
+                <p>Beden: S, M, L</p>
+                <button class="buy-btn">Sepete Ekle</button>
+            </div>
+
+            <div id="details1-sh" class="side-panel"> <span class="close-btn" onclick="closeDetails('details1-sh')">&times;</span>
+                <img src="https://via.placeholder.com/150?text=AYAKKABI" alt="Ayakkabı">
+                <h3>Lacivert Yaşam Ayakkabısı</h3> <p class="price">1.850 TL</p>
+                <p>Beden: 40-45</p>
+                <button class="buy-btn">Sepete Ekle</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function toggleDetails(id) {
+            // Önce aynı gruptaki açık pencereleri kapat
+            const panels = document.getElementsByClassName('side-panel');
+            for (let panel of panels) {
+                panel.style.display = 'none';
+            }
+            // Tıklananı aç
+            document.getElementById(id).style.display = "block";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
+</body>
+</html>
